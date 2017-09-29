@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  why: MyString
+  author_id: 1
+  habit_type: MyString
+  criteria: MyString
+
+two:
+  title: MyString
+  description: MyString
+  why: MyString
+  author_id: 1
+  habit_type: MyString
+  criteria: MyString
