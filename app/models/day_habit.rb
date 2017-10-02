@@ -1,4 +1,4 @@
 class DayHabit < ApplicationRecord
-  belongs_to :habits
-  belongs_to :day 
+  belongs_to :habit, optional: true
+  belongs_to :day
 end

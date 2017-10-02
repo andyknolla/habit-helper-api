@@ -1,9 +1,10 @@
 class DayHabitsController < ApplicationController
   before_action :set_day_habit, only: [:show, :update, :destroy]
+  before_action :set_day_habits
 
   # GET /day_habits
   def index
-    @day_habits = DayHabit.all
+    # @day_habits = DayHabit.all
 
     render json: @day_habits
   end
@@ -42,6 +43,23 @@ class DayHabitsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_day_habit
       @day_habit = DayHabit.find(params[:id])
+    end
+
+    def set_day_habits
+      @day_habits = DayHabit
+                    .select('day_habits.success, habits.title,
+                            habits.description,
+                            habits.why,
+                            habits.habit_type,
+                            habits.criteria,
+                            days.date_string')
+                    .joins(:habit, :day)
+
+                    DayHabit.select('day_habits.success, day_habits.success, habits.title, habits.description, habits.why, habits.habit_type, habits.criteria, days.date_string').joins(:habit, :day)
+
+                    # .where(date_string:'09-27-2017')
+
+
     end
 
     # Only allow a trusted parameter "white list" through.

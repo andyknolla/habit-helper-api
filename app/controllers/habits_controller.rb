@@ -1,5 +1,6 @@
 class HabitsController < ApplicationController
   before_action :set_habit, only: [:show, :update, :destroy]
+  before_action :set_habits, only: [:show, :update, :destroy]
 
   # GET /habits
   def index
@@ -40,6 +41,8 @@ class HabitsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    #
+
     def set_habit
       @habit = Habit.find(params[:id])
     end
@@ -49,3 +52,5 @@ class HabitsController < ApplicationController
       params.require(:habit).permit(:title, :description, :why, :author_id, :habit_type, :criteria)
     end
 end
+
+# resource = Resource.select('resources.id, resources.title, resources.url, resources.free, resources.description, resources.rating, resource_types.name AS type_name, categories.name AS category_name') .joins(:category, :resource_type)
